@@ -1,10 +1,16 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 app.use(express.json());
 const userRouter = require("./route/index");
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 // const options = {
 //   definition: {
 //     openapi: "3.0.0",
