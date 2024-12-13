@@ -26,7 +26,14 @@ const options = {
       version: "1.0.0",
       description: "A simple student management API",
     },
-    servers: [{ url: "http://localhost:3000" }],
+    servers: [
+      {
+        url:
+          process.env.ENV === "production"
+            ? process.env.LIVE_URL
+            : "http://localhost:3000",
+      },
+    ],
     components: {
       securitySchemes: {
         bearerAuth: {

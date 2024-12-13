@@ -186,19 +186,46 @@ router.delete("/delete-student", [middleware.jwtVerify], deleteStudent);
  * @swagger
  * /api/student-list:
  *   get:
- *     summary: Retrieve a list of all students
+ *     summary: Retrieve a paginated list of all students
  *     tags: [Students]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         required: false
+ *         description: The page number to retrieve
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         required: false
+ *         description: The number of students per page
  *     responses:
  *       200:
- *         description: A list of students.
+ *         description: A paginated list of students.
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Student'
+ *               type: object
+ *               properties:
+ *                 total:
+ *                   type: integer
+ *                   description: Total number of students
+ *                 page:
+ *                   type: integer
+ *                   description: The current page number
+ *                 limit:
+ *                   type: integer
+ *                   description: The number of students per page
+ *                 students:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Student'
  *       401:
  *         description: Unauthorized. Token is missing or invalid.
  */
