@@ -17,7 +17,7 @@ const swaggerUi = require("swagger-ui-express");
 //   },
 //   apis: ["./route/index.js"],
 // };
-// console.log(`https://${process.env.LIVE_URL}/api-docs/`);
+console.log(`https://${process.env.LIVE_URL}/api-docs/`);
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -90,8 +90,8 @@ const swaggerSep = swaggerJsDoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSep));
 
 app.use("/api", userRouter);
-app.all("*", (req, res) => {
-  return res.status(404).json({ message: "Page not found" });
-});
+// app.all("*", (req, res) => {
+//   return res.status(404).json({ message: "Page not found" });
+// });
 
 module.exports = app;
