@@ -131,7 +131,7 @@ const router = express.Router();
  *         description: Unauthorized. Token is missing or invalid.
  */
 
-router.post("create-student", [middleware.validateUser], createStudent);
+router.post("/create-student", [middleware.validateUser], createStudent);
 
 /**
  * @swagger
@@ -155,7 +155,7 @@ router.post("create-student", [middleware.validateUser], createStudent);
  *       404:
  *         description: Student not found.
  */
-router.put("update-student", [middleware.jwtVerify], updateStudent);
+router.put("/update-student", [middleware.jwtVerify], updateStudent);
 
 /**
  * @swagger
@@ -180,7 +180,7 @@ router.put("update-student", [middleware.jwtVerify], updateStudent);
  *       404:
  *         description: Student not found.
  */
-router.delete("delete-student", [middleware.jwtVerify], deleteStudent);
+router.delete("/delete-student", [middleware.jwtVerify], deleteStudent);
 
 /**
  * @swagger
@@ -230,6 +230,6 @@ router.delete("delete-student", [middleware.jwtVerify], deleteStudent);
  *         description: Unauthorized. Token is missing or invalid.
  */
 
-router.get("student-list", [middleware.jwtVerify], getStudent);
+router.get("/student-list", [middleware.jwtVerify], getStudent);
 
 module.exports = router;
