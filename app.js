@@ -30,7 +30,7 @@ const options = {
       {
         url:
           process.env.ENV === "production"
-            ? process.env.LIVE_URL
+            ? `https://${process.env.LIVE_URL}`
             : "http://localhost:3000",
       },
     ],
