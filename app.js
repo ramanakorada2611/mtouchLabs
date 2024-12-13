@@ -90,8 +90,8 @@ const swaggerSep = swaggerJsDoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSep));
 
 app.use("/api", userRouter);
-// app.all("*", (req, res) => {
-//   return res.status(404).json({ message: "Page not found" });
-// });
+app.all("*", (req, res) => {
+  return res.status(404).json({ message: "Page not found" });
+});
 
 module.exports = app;
