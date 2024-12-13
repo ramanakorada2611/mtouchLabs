@@ -17,7 +17,7 @@ const swaggerUi = require("swagger-ui-express");
 //   },
 //   apis: ["./route/index.js"],
 // };
-
+console.log(`https://${process.env.LIVE_URL}/api-docs/`);
 const options = {
   definition: {
     openapi: "3.0.0",
